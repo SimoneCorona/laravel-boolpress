@@ -1,7 +1,9 @@
 <template>
+<div> 
     <h1>Front Office</h1>
 
     <WorkInProgress />
+</div>
 </template>
 
 <script>
