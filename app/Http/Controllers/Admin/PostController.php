@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('admin.posts.index', $posts);
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -42,8 +42,8 @@ class PostController extends Controller
         $data = $request->all();
         $post = new Post();
         $post->fill($data);
-        $post->save();
         $post->slug = $this->generatePostSlugFromTitle($post->title);
+        $post->save();
         return redirect()->route('admin.posts.show', ['post' => $post->id]);
     }
 
@@ -96,7 +96,7 @@ class PostController extends Controller
     {
         $posts = Post::findOrFail($id);
         $posts->delete();
-        return redirect()->route('admin.post.show');
+        return redirect()->route('admin.posts.show');
     }
 
 

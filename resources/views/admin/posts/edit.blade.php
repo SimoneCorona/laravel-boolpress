@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<h1>Nuovo Post</h1>
+<h1>Modifica Post</h1>
 <form action="{{ route('admin.posts.store') }}" method="post">
     @method('POST')
     @csrf
@@ -16,14 +16,17 @@
     </div>
     @endif
 
-    <div>
-        <label for="title">Titolo</label>
-        <input type="text" id="title" name="title">
-    </div>
-    <div>
-        <label for="content">Serie</label>
-        <input type="text" id="content" name="content">
-    </div>
-    <button type="submit">Submit</button>
+    <form action="{{ route('admin.posts.update', ['post' => $post->id]) }}" method="POST">
+        @method('PUT')
+        @csrf
+        <div>
+            <label for="title">Titolo</label>
+            <input type="text" id="title" name="title" value="{{ old('title') ? old('title') : $post->title }}">
+        </div>
+        <div>
+            <label for="content">Serie</label>
+            <input type="text" id="content" name="content" value="{{ old('content') ? old('content') : $post->content }}">
+        </div>
+        <button type="submit">Modifica</button>
 </form>
 @endsection
