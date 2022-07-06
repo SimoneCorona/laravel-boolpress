@@ -28,5 +28,5 @@
             <input type="text" id="content" name="content" value="{{ old('content') ? old('content') : $post->content }}">
         </div>
         <button type="submit">Modifica</button>
-</form>
+    </form>
 @endsection
