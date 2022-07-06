@@ -2,9 +2,6 @@
 
 @section('content')
 <h1>Modifica Post</h1>
-<form action="{{ route('admin.posts.store') }}" method="post">
-    @method('POST')
-    @csrf
 
     @if ($errors->any())
     <div>
@@ -24,7 +21,7 @@
             <input type="text" id="title" name="title" value="{{ old('title') ? old('title') : $post->title }}">
         </div>
         <div>
-            <label for="content">Serie</label>
+            <label for="content">Content</label>
             <input type="text" id="content" name="content" value="{{ old('content') ? old('content') : $post->content }}">
         </div>
         <button type="submit">Modifica</button>
