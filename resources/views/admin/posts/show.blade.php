@@ -4,6 +4,7 @@
 <div class="container">
     <h1>{{ $post->title }}</h1>
     <p>{{ $post->content }}</p>
+    <p>Categoria: {{$category ? $category->name : 'nessuna'}}</p>
     <div>
         <form action="{{ route('admin.posts.edit', ['post' => $post->id ]) }}">
             <button type="submit">Modifica</button>
