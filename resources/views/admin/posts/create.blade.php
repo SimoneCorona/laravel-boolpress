@@ -29,6 +29,18 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <h3 class="col-sm-2">Tag</h3>
+            <div class="col-sm-10">
+              <div class="form-check">
+                @foreach ($tags as $tag)
+                    <input type="checkbox" id="gridCheck1">
+                    <label for="gridCheck1">
+                        {{ $tag->name }}
+                    </label>
+                @endforeach
+            </div>
+        </div>
         <div>
             <label for="content">Contenuto</label>
             <input type="text" id="content" name="content">

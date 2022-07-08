@@ -5,6 +5,10 @@
     <h1>{{ $post->title }}</h1>
     <p>{{ $post->content }}</p>
     <p>Categoria: {{$category ? $category->name : 'nessuna'}}</p>
+    <h2>Tags</h2>
+    <ul>
+        <li>{{ $tag }}</li>
+    </ul>
     <div>
         <form action="{{ route('admin.posts.edit', ['post' => $post->id ]) }}">
             <button type="submit">Modifica</button>
