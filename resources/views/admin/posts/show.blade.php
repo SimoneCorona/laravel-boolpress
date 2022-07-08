@@ -6,9 +6,11 @@
     <p>{{ $post->content }}</p>
     <p>Categoria: {{$category ? $category->name : 'nessuna'}}</p>
     <h2>Tags</h2>
-    <ul>
-        <li>{{ $tag }}</li>
-    </ul>
+    @forelse ($post->tags as $tag)
+        <p>{{ $tag->name }}{{ $loop->last ? '' : ', ' }}</p>
+    @empty
+        <p>nessun tag</p> 
+    @endforelse
     <div>
         <form action="{{ route('admin.posts.edit', ['post' => $post->id ]) }}">
             <button type="submit">Modifica</button>
