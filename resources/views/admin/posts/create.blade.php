@@ -34,8 +34,8 @@
             <div class="col-sm-10">
               <div class="form-check">
                 @foreach ($tags as $tag)
-                    <input type="checkbox" id="gridCheck1">
-                    <label for="gridCheck1">
+                    <input type="checkbox" name="{{$tag->name}}" id="{{$tag->id}}">
+                    <label for="{{$tag->id}}">
                         {{ $tag->name }}
                     </label>
                 @endforeach

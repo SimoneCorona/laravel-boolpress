@@ -25,8 +25,8 @@
             <div class="col-sm-10">
               <div class="form-check">
                 @foreach ($tags as $tag)
-                    <input type="checkbox" id="gridCheck1">
-                    <label for="gridCheck1">
+                    <input type="checkbox" name="tags[]" value="{{$tag->id}}" id="{{$tag->id}}" {{ $post->tags->contains($tag) ? 'checked' : '' }}>
+                    <label for="{{$tag->id}}">
                         {{ $tag->name }}
                     </label>
                 @endforeach
