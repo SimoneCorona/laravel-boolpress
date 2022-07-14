@@ -3,18 +3,19 @@
         <h2>Tutti i post:</h2>
         <div class="container">
         <div v-for="post in posts" :key='post.id' class="row row-cols-3">
-            <div class="card mb-3">
-                <h1>{{ post.title }}</h1>
-                <p>{{ post.content }}</p>
-            </div>
+            <PostCard :post="post"/>
         </div>
         </div>
     </div>
 </template>
 
 <script>
+import PostCard from './PostCard.vue';
 export default {
     name: 'Posts',
+    components: {
+        PostCard,
+    },
     data() {
         return {
             posts: [],
@@ -28,7 +29,6 @@ export default {
              axios.get('/api/posts')
              .then((resp) => {
                 this.posts = resp.data.results;
-                console.log(this.posts)
             })
         }
     }
