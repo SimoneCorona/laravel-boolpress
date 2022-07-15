@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -44,6 +45,7 @@ class PostController extends Controller
     {
         $request->validate($this->getValidationRules());
         $data = $request->all();
+        $image_path = Storage::put('image_path', 'data');
         $post = new Post();
         $post->fill($data);
         $post->slug = $this->generatePostSlugFromTitle($post->title);

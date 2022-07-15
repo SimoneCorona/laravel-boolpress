@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Inserisci un nuovo post</h1>
-    <form action="{{ route('admin.posts.store') }}" method="post">
+    <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         @if ($errors->any())
@@ -44,6 +44,10 @@
         <div>
             <label for="content">Contenuto</label>
             <input type="text" id="content" name="content">
+        </div>
+        <div>
+            <label for="image">Inserisci un immagine</label>
+            <input type="file" id="image" name="image">
         </div>
         <button type="submit">Submit</button>
     </form>
